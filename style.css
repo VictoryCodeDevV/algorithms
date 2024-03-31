@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333;
+    backdrop-filter: blur(5px);
+    padding: 0;
+    z-index: 10;
+}
+.title {
+    font-size: 50px;
+    color: #fff;
+    padding-left: 30px;
+}
+.title span {
+    color: #CED305;
+    white-space: nowrap;
+}
+
+
+.main {
+    background-color: #fff;
+    margin: 200px auto 20px auto;
+    padding: 15px;
+    max-width: 800px;
+
+    font-size: 25px;
+}
+
+ul {
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a, a:visited, a:active {
+    color: #CED305;
+    text-decoration: none;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кривая дракона</title>
+    <style>
+        body {
+            overflow: scroll;
+        }
+        #cnv {1
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <canvas id="cnv"></canvas>
+    <script>
+        cnv = document.getElementById('cnv')
+        ctx = cnv.getContext('2d')
+
+        // w = window.innerWidth
+        // h = window.innerHeight
+
+        // w = window.innerWidth
+        // h = window.innerHeight
+
+        cnv.width = 5000;
+        cnv.height = 2500;
+
+        // 0 - поворот налево, 1 - направо
+        
+        
+        
+        turns = [1]
+        iterations = +prompt('Число инераций?')
+        for(let i = 0; i<iterations; i++) {
+            newTurns();
+        }
+        function newTurns() {
+            let copyTurns = turns.slice()
+            copyTurns.reverse()
+            copyTurns = copyTurns.map(e => {
+                e = (e == 0) ? 1 : 0;
+                return e
+            }) 
+
+            turns = [...turns, 1 , ...copyTurns]
+        }
+
+        prevDir = 0;
+        function lineDraw(l,dir) {
+            angle = prevDir + dir
+            let x1 = x + Math.cos(angle) * l;
+            let y1 = y + Math.sin(angle) * l;
+
+            ctx.beginPath();
+            ctx.moveTo(x,y)
+            ctx.lineTo(x1,y1);
+            ctx.stroke()
+
+            x = x1;
+            y = y1;
+            prevDir = angle
+        }
+        x = cnv.width/2;
+        y = cnv.height/2;
+        console.log(x,y)
+        lineLength = 5;
+
+
+
+
+        lineDraw(lineLength,0)
+        for(let i=0; i<turns.length; i++) {
+            let newDir = (turns[i] == 0)? -Math.PI/2: Math.PI/2;
+            setTimeout(lineDraw, 500, lineLength,newDir);
+        }
+    </script>
+</body>
+</html>
