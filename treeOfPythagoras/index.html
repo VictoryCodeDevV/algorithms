@@ -158,13 +158,13 @@ class Tree {
     // Дерево с 3мя ветвями
     class Tree2 extends Tree {
         drawFigures() {
-            this.drawTree(w/2,h/2+500,-Math.PI / 2, 400, 8);
+            this.drawTree(w/2,h/2+500,-Math.PI / 2, 400, 9);
         }
 
         drawBranches(x1,y1,dir,l,iteration) {
-            this.drawTree(x1,y1,dir, l*0.6, iteration - 1);
-            this.drawTree(x1,y1,dir + this.angle, l*0.6, iteration - 1);
-            this.drawTree(x1,y1,dir - this.angle, l*0.6, iteration - 1);
+            this.drawTree(x1,y1,dir, l*0.5, iteration - 1);
+            this.drawTree(x1,y1,dir + this.angle, l*0.5, iteration - 1);
+            this.drawTree(x1,y1,dir - this.angle, l*0.5, iteration - 1);
         }
     }
 
